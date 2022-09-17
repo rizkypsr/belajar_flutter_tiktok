@@ -1,3 +1,4 @@
+import 'package:belajar_flutter/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -46,13 +47,22 @@ class ImageList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          image: DecorationImage(
-            image: NetworkImage(imgUrl),
-            fit: BoxFit.cover,
-          )),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailScreen(imgUrl: imgUrl),
+            ));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              image: NetworkImage(imgUrl),
+              fit: BoxFit.cover,
+            )),
+      ),
     );
   }
 }
